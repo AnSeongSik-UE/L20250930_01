@@ -9,43 +9,91 @@ using namespace std;
 // 몬스터 - 상하좌우 이동
 // 목적지에 플레이어가 도착시 게임이 끝남
 
-class Character
+class Goal
 {
 public:
-	int Direction;
+};
 
-	void Move(int InDirection)
+class Monster
+{
+public:
+	void Move()
 	{
 
 	}
+};
+
+class Player
+{
+public:
+	void Move()
+	{
+
+	}
+};
+
+class Wall
+{
+public:
+};
+
+class Floor
+{
+public:
 };
 
 class World
 {
 public:
-	int X;
-	int Y;
-	int Floor;
-	int Wall;
-	Character Player;
-	Character Monster;
-	int Goal;
+	Player MyPlayer;
+	Monster MyMonster;
+	Wall MyWall[100];
+	Floor MyFloor[100];
+	Goal MyGoal;
 
-	void BlockMove(Character InCharacter, int Wall)
+	void GameOver()
 	{
 
 	}
-
-	void EndGame(Character InPlayer, int Goal)
-	{
-
-	}
-
 };
 
+class Engine
+{
+public:
+	World MyWorld;
+
+	void Run()
+	{
+		while(true)
+		{
+			Input();
+			Tick();
+			Render();
+		}
+	}
+
+	void Input()
+	{
+
+	}
+	void Tick()
+	{
+
+	}
+	void Render()
+	{
+
+	}
+};
 
 int main()
 {
+	//Init()
+	Engine* MyEngine = new Engine;
+	MyEngine->Run();
+
+	delete MyEngine;
+	MyEngine = nullptr;
 
 	return 0;
 }
