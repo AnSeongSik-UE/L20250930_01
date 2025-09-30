@@ -2,46 +2,50 @@
 
 using namespace std;
 
-class State
-{
-public:
-	int ID;
-	string StateName;
-};
+// 세상 - 벽과 바닥으로 이루어져 있음, 플레이어와 몬스터와 목적지가 있음
+// 벽 - 통과할 수 없음
+// 세상은 10*10
+// 플레이어 - 상하좌우 이동
+// 몬스터 - 상하좌우 이동
+// 목적지에 플레이어가 도착시 게임이 끝남
 
-class Transition
+class Character
 {
 public:
-	int CurrentState;
-	string Condition;
-	int NextState;
-};
+	int Direction;
 
-class FSM
-{
-public:
-	FSM()
+	void Move(int InDirection)
 	{
-		States[0].ID = 1;
-		States[0].StateName = "배회";
-		States[1].ID = 2;
-		States[1].StateName = "추격";
-		States[2].ID = 3;
-		States[2].StateName = "공격";
-		States[3].ID = 4;
-		States[3].StateName = "죽음";
-	}
-	State States[4];
-	Transition Transitions[5];
 
-	State Transit(State InState, string Condition);
+	}
 };
+
+class World
+{
+public:
+	int X;
+	int Y;
+	int Floor;
+	int Wall;
+	Character Player;
+	Character Monster;
+	int Goal;
+
+	void BlockMove(Character InCharacter, int Wall)
+	{
+
+	}
+
+	void EndGame(Character InPlayer, int Goal)
+	{
+
+	}
+
+};
+
 
 int main()
 {
-	FSM MyFSM;
-	MyFSM.Transit();
-
 
 	return 0;
 }
