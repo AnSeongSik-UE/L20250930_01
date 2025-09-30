@@ -4,41 +4,13 @@ using namespace std;
 
 int main()
 {
-	int AmountOfNumber = 0;
-	unsigned long long Number = 0;
-	bool bIsReached = true;
-	unsigned long long N = 1;
-	unsigned long long Result = 0;
+	unsigned char A = 0b00000001;
+	unsigned char B = 0b00000000;
 
-	std::cin >> AmountOfNumber;
-
-	for (int i = 0; i < AmountOfNumber; ++i)
-	{
-		std::cin >> Number;
-		while (bIsReached)
-		{
-			if (Number <= N)
-			{
-				bIsReached = false;
-			}
-			else
-			{
-				N *= 2;
-			}
-		}
-		if (i == 0)
-		{
-			Result = N;
-		}
-		else
-		{
-			Result = Result ^ N;
-		}
-		bIsReached = true;
-		N = 1;
-	}
-
-	cout << Result << endl;
+	cout << (A & B) << endl;	// AND
+	cout << (A | B) << endl;	// OR
+	cout << (~A) << endl;		// NOT
+	cout << (A ^ B) << endl;	// XOR
 
 	return 0;
 }
