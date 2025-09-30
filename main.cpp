@@ -2,15 +2,31 @@
 
 using namespace std;
 
+#define WorldStatic		0b00000001
+#define WorldDynamic	0b00000010
+#define Pawn			0b00000100
+#define PhysicsBody		0b00001000
+
 int main()
 {
-	unsigned char A = 0b00000001;
-	unsigned char B = 0b00000000;
+	unsigned char MyActorType = Pawn | PhysicsBody;
+	
+	// ´À¸²
+	//string MyActorTypes = "Pawn, Physics";
+	//if (MyActorTypes.find("Pawn"))
+	//{
+	//	'P' == 'P' && 'a' == 'a';
+	//}
 
-	cout << (A & B) << endl;	// AND
-	cout << (A | B) << endl;	// OR
-	cout << (~A) << endl;		// NOT
-	cout << (A ^ B) << endl;	// XOR
+	if (MyActorType & Pawn)
+	{
+		cout << "Pawn" << endl;
+	}
+	else
+	{
+		cout << "Not Pawn" << endl;
+	}
+
 
 	return 0;
 }
